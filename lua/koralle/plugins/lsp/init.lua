@@ -69,7 +69,10 @@ local spec = {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("ddc_nvim_lsp_setup").setup({})
+      require("ddc_nvim_lsp_setup").setup({
+        override_capabilities = true,
+        respect_trigger = true,
+      })
       load_lspconfig("lua-ls")
       load_lspconfig("tsserver")
       load_lspconfig("pyright")
@@ -117,6 +120,135 @@ local spec = {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    event = { "LspAttach" },
+    config = function()
+      local null_ls = require("null-ls")
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+      local formatting = null_ls.builtins.formatting
+      local diagnostics = null_ls.builtins.diagnostics
+
+      null_ls.setup({
+        sources = {
+          -- Lua
+          diagnostics.luacheck.with({}),
+          formatting.stylua.with({
+            condition = function(utils)
+              return utils.root_has_file({ "stylua.toml", ".stylua.toml" })
+            end,
+          }),
+
+          -- JavaScript/TypeScript (Biome)
+          formatting.biome.with({
+            condition = function(utils)
+              return utils.root_has_file({ "biome.json" })
+            end,
+            prefer_local = "node_modules/.bin",
+          }),
+
+          -- JavaScript/TypeScript (ESLint)
+          diagnostics.eslint.with({
+            condition = function(utils)
+              return utils.root_has_file({
+                "eslint.config.js",
+                ".eslintrc.js",
+                ".eslintrc.cjs",
+                ".eslintrc.yaml",
+                ".eslintrc.yml",
+                ".eslintrc.json",
+              })
+            end,
+            prefer_local = "node_modules/.bin",
+          }),
+          formatting.eslint.with({
+            condition = function(utils)
+              return utils.root_has_file({
+                "eslint.config.js",
+                ".eslintrc.js",
+                ".eslintrc.cjs",
+                ".eslintrc.yaml",
+                ".eslintrc.yml",
+                ".eslintrc.json",
+              })
+            end,
+            prefer_local = "node_modules/.bin",
+          }),
+
+          -- JavaScript/TypeScript (Prettier)
+          formatting.prettier.with({
+            condition = function(utils)
+              return utils.root_has_file({
+                ".prettierrc",
+                ".prettierrc.json",
+                ".prettierrc.yml",
+                ".prettierrc.yaml",
+                ".prettierrc.json5",
+                ".prettierrc.js",
+                ".prettier.config.js",
+                ".prettierrc.mjs",
+                ".prettier.config.mjs",
+                ".prettierrc.cjs",
+                ".prettier.config.cjs",
+                ".prettierrc.toml",
+              })
+            end,
+            prefer_local = "node_modules/.bin",
+          }),
+
+          -- Deno
+          diagnostics.deno_lint,
+          formatting.deno_fmt,
+
+          -- GitHub Actions
+          diagnostics.actionlint,
+
+          -- Rust
+          formatting.rustfmt,
+
+          -- Tailwind CSS
+          formatting.rustywind,
+
+          --- Python
+          diagnostics.ruff,
+          formatting.ruff_format,
+          formatting.isort,
+        },
+        on_attach = function(client, bufnr)
+          if client.name == "lua_ls" then
+            client.server_capabilities.documentFormattingProvider = false
+          end
+          if client.name == "tsserver" then
+            client.server_capabilities.documentFormattingProvider = false
+          end
+          if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format({
+                  bufnr = bufnr,
+                  filter = function()
+                    return client.name == "null-ls"
+                  end,
+                  async = false,
+                })
+              end,
+            })
+          end
+        end,
+      })
+    end,
+  },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = false,
   },
 }
 

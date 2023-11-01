@@ -1,3 +1,5 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 require("lspconfig").lua_ls.setup({
   settings = {
     Lua = {
@@ -26,4 +28,5 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
+  capabilities = capabilities,
 })

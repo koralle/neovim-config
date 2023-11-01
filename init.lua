@@ -14,3 +14,5 @@ vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tar = 1
 
 require("lazy-nvim")
+
+vim.cmd([[runtime! lua/koralle/configs/*.lua]])

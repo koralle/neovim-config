@@ -1,3 +1,11 @@
+---@type fun(server_name: string): nil
+---@param server_name string LSP-Server name
+---@return nil
+local load_lspconfig = function(server_name)
+  local config_path = "koralle.plugins.lsp." .. server_name
+  require(config_path)
+end
+
 ---@type LazySpec
 local spec = {
   {
@@ -55,10 +63,10 @@ local spec = {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
-    end
-  }
+      load_lspconfig("lua-ls")
+      load_lspconfig("tsserver")
+    end,
+  },
 }
 
 return spec
-

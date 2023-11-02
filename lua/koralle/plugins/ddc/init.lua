@@ -1,3 +1,13 @@
+---@type fun(group: string, styles: table<string, string>): nil
+local set_highlight = function(group, styles)
+  local gui = styles.gui and "gui=" .. styles.gui or "gui=NONE"
+  local guifg = styles.guifg and "guifg=" .. styles.guifg or "guifg=NONE"
+  local guibg = styles.guibg and "guibg=" .. styles.guibg or "guibg=NONE"
+  local sp = styles.sp and "guisp=" .. styles.sp or ""
+  local hl_cmd = string.format("highlight %s %s %s %s %s", group, gui, guifg, guibg, sp)
+  vim.cmd(hl_cmd)
+end
+
 ---@type LazySpec
 local spec = {
   {
@@ -21,6 +31,28 @@ local spec = {
       end
     end,
     config = function()
+      set_highlight("DdcCmpItemAbbr", {
+        gui = "italic",
+        guifg = "#7dcfff",
+      })
+
+      set_highlight("DdcCmpItemKind", {
+        guifg = "#9eca6a",
+      })
+
+      set_highlight("DdcCmpItemMenu", {
+        guifg = "#bb9af7",
+      })
+
+      vim.fn["pum#set_option"]({
+        padding = true,
+        highlight_columns = {
+          abbr = "Identifier",
+          kind = "Directory",
+          menu = "DdcCmpItemMenu",
+        },
+      })
+
       vim.fn["ddc#custom#patch_global"]("sources", {
         "around",
         "mocword",

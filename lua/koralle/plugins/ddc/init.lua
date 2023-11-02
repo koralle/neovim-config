@@ -9,6 +9,8 @@ local spec = {
       "Shougo/ddc-filter-sorter_rank",
       "Shougo/ddc-source-mocword",
       "matsui54/denops-popup-preview.vim",
+      "Shougo/pum.vim",
+      "Shougo/ddc-ui-pum",
     },
     enabled = function()
       if vim.fn.executable("deno") == 1 then
@@ -37,6 +39,8 @@ local spec = {
           isVolatile = true,
         },
       })
+
+      vim.fn["ddc#custom#patch_global"]("ui", "pum")
       -- vim.fn["ddc#custom#patch_global"]("sources", {})
       -- vim.fn["ddc#custom#patch_global"]("sourceOptions", {})
       -- vim.fn["ddc#custom#patch_global"]("sourceParams", {})
@@ -62,6 +66,24 @@ local spec = {
   {
     "matsui54/denops-popup-preview.vim",
     lazy = true,
+  },
+  {
+    "Shougo/pum.vim",
+    lazy = true,
+    dependencies = {
+      "folke/noice.nvim",
+    },
+  },
+  {
+    "folke/noice.nvim",
+    lazy = true,
+  },
+  {
+    "Shougo/ddc-ui-pum",
+    lazy = true,
+    dependencies = {
+      "Shougo/pum.vim"
+    }
   },
 }
 

@@ -8,6 +8,7 @@ local spec = {
       "Shougo/ddc-filter-matcher_head",
       "Shougo/ddc-filter-sorter_rank",
       "Shougo/ddc-source-mocword",
+      "matsui54/denops-popup-preview.vim",
     },
     enabled = function()
       if vim.fn.executable("deno") == 1 then
@@ -56,6 +57,10 @@ local spec = {
   },
   {
     "Shougo/ddc-source-mocword",
+    lazy = true,
+  },
+  {
+    "matsui54/denops-popup-preview.vim",
     lazy = true,
   },
 }

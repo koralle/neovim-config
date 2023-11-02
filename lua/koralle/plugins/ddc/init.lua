@@ -11,6 +11,7 @@ local spec = {
       "matsui54/denops-popup-preview.vim",
       "Shougo/pum.vim",
       "Shougo/ddc-ui-pum",
+      "Shougo/ddc-source-nvim-lsp",
     },
     enabled = function()
       if vim.fn.executable("deno") == 1 then
@@ -23,6 +24,7 @@ local spec = {
       vim.fn["ddc#custom#patch_global"]("sources", {
         "around",
         "mocword",
+        "nvim-lsp",
       })
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {
@@ -38,13 +40,26 @@ local spec = {
           minAutoCompleteLength = 3,
           isVolatile = true,
         },
+        ["nvim-lsp"] = {
+          mark = "🦍[LSP]",
+          forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
+        },
       })
 
       vim.fn["ddc#custom#patch_global"]("ui", "pum")
       -- vim.fn["ddc#custom#patch_global"]("sources", {})
       -- vim.fn["ddc#custom#patch_global"]("sourceOptions", {})
-      -- vim.fn["ddc#custom#patch_global"]("sourceParams", {})
-      -- vim.fn["ddc#enable"]()
+      vim.fn["ddc#custom#patch_global"]("sourceParams", {
+        ["nvim-lsp"] = {
+          snippetEngine = vim.fn["denops#callback#register"](function(body)
+            return vim.fn["vsnip#anonymous"](body)
+          end),
+          enableResolveItem = true,
+          enableAdditionalTextEdit = true,
+        },
+      })
+      vim.fn["ddc#enable"]()
+      vim.fn["popup_preview#enable"]()
     end,
   },
   {
@@ -82,8 +97,19 @@ local spec = {
     "Shougo/ddc-ui-pum",
     lazy = true,
     dependencies = {
-      "Shougo/pum.vim"
-    }
+      "Shougo/pum.vim",
+    },
+  },
+  {
+    "Shougo/ddc-source-nvim-lsp",
+    lazy = true,
+    dependencies = {
+      "uga-rosa/ddc-nvim-lsp-setup",
+    },
+  },
+  {
+    "uga-rosa/ddc-nvim-lsp-setup",
+    lazy = true,
   },
 }
 

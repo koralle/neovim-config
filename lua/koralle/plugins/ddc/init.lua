@@ -7,6 +7,7 @@ local spec = {
       "Shougo/ddc-source-around",
       "Shougo/ddc-filter-matcher_head",
       "Shougo/ddc-filter-sorter_rank",
+      "Shougo/ddc-source-mocword",
     },
     enabled = function()
       if vim.fn.executable("deno") == 1 then
@@ -18,6 +19,7 @@ local spec = {
     config = function()
       vim.fn["ddc#custom#patch_global"]("sources", {
         "around",
+        "mocword",
       })
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {
@@ -27,6 +29,11 @@ local spec = {
           sorters = {
             "sorter_rank",
           },
+        },
+        mocword = {
+          mark = "[MOCWORD]",
+          minAutoCompleteLength = 3,
+          isVolatile = true,
         },
       })
       -- vim.fn["ddc#custom#patch_global"]("sources", {})
@@ -45,6 +52,10 @@ local spec = {
   },
   {
     "Shougo/ddc-filter-sorter_rank",
+    lazy = true,
+  },
+  {
+    "Shougo/ddc-source-mocword",
     lazy = true,
   },
 }

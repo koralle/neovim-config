@@ -1,4 +1,5 @@
 {
+  "ddc-source-around": { "branch": "main", "commit": "68999df051a6fb2cbad57941a2c96e42149b6384" },
   "ddc.vim": { "branch": "main", "commit": "2c13eff071fd4c96486506ab5253e8d40a076c88" },
   "denops.vim": { "branch": "main", "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1" },
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },

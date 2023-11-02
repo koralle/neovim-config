@@ -88,6 +88,39 @@ local spec = {
     dependencies = {
       "folke/noice.nvim",
     },
+    config = function()
+      local opts = { noremap = true, silent = true, expr = true }
+      vim.cmd([[
+        inoremap <silent><expr> <TAB>
+          \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+          \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+          \ '<TAB>' : ddc#manual_complete()
+      ]])
+
+      vim.keymap.set("i", "<s-tab>", function()
+        vim.fn["pum#map#insert_relative"](-1)
+      end, {
+        noremap = true,
+      })
+      vim.keymap.set("i", "<C-n>", function()
+        vim.fn["pum#map#select_relative"](1)
+      end, {
+        noremap = true,
+      })
+      vim.keymap.set("i", "<C-p>", function()
+        vim.fn["pum#map#select_relative"](-1)
+      end, opts)
+      vim.keymap.set("i", "<C-y>", function()
+        vim.fn["pum#map#confirm"]()
+      end, {
+        noremap = true,
+      })
+      vim.keymap.set("i", "<C-e>", function()
+        vim.fn["pum#map#cancel"]()
+      end, {
+        noremap = true,
+      })
+    end,
   },
   {
     "folke/noice.nvim",

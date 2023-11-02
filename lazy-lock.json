@@ -1,4 +1,6 @@
 {
+  "ddc-filter-matcher_head": { "branch": "main", "commit": "16727bb785c7fdbd4c5ed7a5f3da8d2f7355f8fd" },
+  "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
   "ddc-source-around": { "branch": "main", "commit": "68999df051a6fb2cbad57941a2c96e42149b6384" },
   "ddc.vim": { "branch": "main", "commit": "2c13eff071fd4c96486506ab5253e8d40a076c88" },
   "denops.vim": { "branch": "main", "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1" },

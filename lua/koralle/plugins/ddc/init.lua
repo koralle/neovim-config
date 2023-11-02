@@ -91,6 +91,7 @@ local spec = {
           end),
           enableResolveItem = true,
           enableAdditionalTextEdit = true,
+          confirmBehavior = "replace",
         },
       })
       vim.fn["ddc#enable"]()

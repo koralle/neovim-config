@@ -68,6 +68,7 @@ local spec = {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      require("ddc_nvim_lsp_setup").setup({})
       load_lspconfig("lua-ls")
       load_lspconfig("tsserver")
     end,

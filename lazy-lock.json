@@ -1,4 +1,13 @@
 {
+  "ddc-filter-matcher_head": { "branch": "main", "commit": "16727bb785c7fdbd4c5ed7a5f3da8d2f7355f8fd" },
+  "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
+  "ddc-nvim-lsp-setup": { "branch": "main", "commit": "087fd72d0a1284edcbc263e3f1a0b462fa60845d" },
+  "ddc-source-around": { "branch": "main", "commit": "68999df051a6fb2cbad57941a2c96e42149b6384" },
+  "ddc-source-mocword": { "branch": "main", "commit": "6b818bcefea97cd1a890d47d83689a0f2bc31ca3" },
+  "ddc-source-nvim-lsp": { "branch": "main", "commit": "3dce3f29cb99aa5463c8ec56e091587b1c9fcba6" },
+  "ddc-ui-pum": { "branch": "main", "commit": "6fd98ba227889883bbf75405506c451feaae6ef8" },
+  "ddc.vim": { "branch": "main", "commit": "2c13eff071fd4c96486506ab5253e8d40a076c88" },
+  "denops-popup-preview.vim": { "branch": "main", "commit": "5a62ac76478791a86f17ac79f064ab302c41f5eb" },
   "denops.vim": { "branch": "main", "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1" },
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
   "fern-renderer-nerdfont.vim": { "branch": "master", "commit": "1e90a78ab5510fbcedc85abeb9a251d978726935" },
@@ -8,8 +17,10 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "40301e1c74bc0946eece13edf2b1c561cc497491" },
   "mason.nvim": { "branch": "main", "commit": "eabf6d347fdb75be360d4c0ced1145670a171453" },
   "nerdfont.vim": { "branch": "master", "commit": "a2ac4d9df8f82f572fea54cd082c293e2b6d8fbb" },
+  "noice.nvim": { "branch": "main", "commit": "92433164e2f7118d4122c7674c3834d9511722ba" },
   "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },
   "nvim-lspconfig": { "branch": "master", "commit": "d0467b9574b48429debf83f8248d8cee79562586" },
   "nvim-treesitter": { "branch": "master", "commit": "efec7115d8175bdb6720eeb4e26196032cb52593" },
+  "pum.vim": { "branch": "main", "commit": "e787cecb4272c8a8efdeb3b1ad32a90a5747a7a2" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" }
 }

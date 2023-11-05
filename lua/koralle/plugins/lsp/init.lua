@@ -51,6 +51,7 @@ local spec = {
           "kotlin_language_server",
           "lua_ls",
           "prismals",
+          "pyright",
           "rust_analyzer",
           "taplo",
           "tailwindcss",
@@ -71,6 +72,7 @@ local spec = {
       require("ddc_nvim_lsp_setup").setup({})
       load_lspconfig("lua-ls")
       load_lspconfig("tsserver")
+      load_lspconfig("pyright")
     end,
   },
   {

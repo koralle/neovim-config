@@ -54,9 +54,9 @@ local spec = {
       })
 
       vim.fn["ddc#custom#patch_global"]("sources", {
+        "nvim-lsp",
         "around",
         "mocword",
-        "nvim-lsp",
       })
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {

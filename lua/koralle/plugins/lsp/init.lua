@@ -250,6 +250,29 @@ local spec = {
     "nvim-lua/plenary.nvim",
     lazy = false,
   },
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+    enabled = function()
+      local jdtls_path = os.getenv("JDTLS_BIN")
+      if vim.fn.executable("jdtls") == 1 and jdtls_path ~= nil then
+        return true
+      else
+        return false
+      end
+    end,
+    config = function()
+      local jdtls_path = os.getenv("JDTLS_BIN")
+      require("jdtls").start_or_attach({
+        cmd = {
+          jdtls_path,
+        },
+        root_dir = vim.fs.dirname(
+          vim.fs.find({ "gradlew", ".git", "mvnw", "pom.xml" }, { upward = true })[1]
+        ),
+      })
+    end,
+  },
 }
 
 return spec

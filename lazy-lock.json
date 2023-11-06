@@ -16,6 +16,7 @@
   "lspsaga.nvim": { "branch": "main", "commit": "85f7c38d96924fd3c457ea0a31667cc1bd06b5e0" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "40301e1c74bc0946eece13edf2b1c561cc497491" },
   "mason.nvim": { "branch": "main", "commit": "eabf6d347fdb75be360d4c0ced1145670a171453" },
+  "mini.files": { "branch": "main", "commit": "ca3376f8776c2b0479b65ca4c8953559fdac7bb9" },
   "nerdfont.vim": { "branch": "master", "commit": "a2ac4d9df8f82f572fea54cd082c293e2b6d8fbb" },
   "noice.nvim": { "branch": "main", "commit": "92433164e2f7118d4122c7674c3834d9511722ba" },
   "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },

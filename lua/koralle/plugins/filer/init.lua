@@ -39,6 +39,13 @@ local spec = {
     "lambdalisue/nerdfont.vim",
     lazy = true,
   },
+  {
+    "echasnovski/mini.files",
+    version = "*",
+    config = function()
+      require("mini.files").setup({})
+    end,
+  },
 }
 
 return spec

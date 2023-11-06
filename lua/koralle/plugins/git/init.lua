@@ -13,7 +13,7 @@ local spec = {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup({})
-    end
+    end,
   },
   {
     "sindrets/diffview.nvim",
@@ -21,8 +21,8 @@ local spec = {
       require("diffview").setup({
         diff_binaries = false,
       })
-    end
-  }
+    end,
+  },
 }
 
 return spec

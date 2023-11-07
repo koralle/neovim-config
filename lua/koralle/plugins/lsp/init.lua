@@ -76,6 +76,7 @@ local spec = {
       load_lspconfig("lua-ls")
       load_lspconfig("tsserver")
       load_lspconfig("pyright")
+      load_lspconfig("volar")
     end,
   },
   {

@@ -216,15 +216,34 @@ local spec = {
           formatting.rustywind,
 
           --- Python
-          diagnostics.ruff,
-          formatting.ruff_format,
-          formatting.isort,
+          diagnostics.ruff.with({
+            condition = function(utils)
+              return utils.root_has_file({ "pyproject.toml", "ruff.toml" })
+            end,
+            diagnostics_format = "[#{c}] #{m} (#{s})",
+            prefer_local = ".venv/bin",
+          }),
+          formatting.ruff.with({
+            condition = function(utils)
+              return utils.root_has_file({ "pyproject.toml", "ruff.toml" })
+            end,
+            prefer_local = ".venv/bin",
+          }),
+          formatting.ruff_format.with({
+            condition = function(utils)
+              return utils.root_has_file({ "pyproject.toml", "ruff.toml" })
+            end,
+            prefer_local = ".venv/bin",
+          }),
         },
         on_attach = function(client, bufnr)
           if client.name == "lua_ls" then
             client.server_capabilities.documentFormattingProvider = false
           end
           if client.name == "tsserver" then
+            client.server_capabilities.documentFormattingProvider = false
+          end
+          if client.name == "pyright" then
             client.server_capabilities.documentFormattingProvider = false
           end
           if client.supports_method("textDocument/formatting") then

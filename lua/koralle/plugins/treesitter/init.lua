@@ -60,6 +60,9 @@ local spec = {
       highlight = {
         enable = true,
       },
+      ignore_install = {
+        "swift",
+      },
     })
   end,
 }

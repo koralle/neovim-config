@@ -77,6 +77,7 @@ local spec = {
       load_lspconfig("tsserver")
       load_lspconfig("pyright")
       load_lspconfig("volar")
+      load_lspconfig("jsonls")
     end,
   },
   {

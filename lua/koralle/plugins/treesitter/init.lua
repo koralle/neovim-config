@@ -1,4 +1,4 @@
----@type Lazyspec
+---@type LazySpec
 local spec = {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,

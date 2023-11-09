@@ -1,8 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
   "Lua.workspace.library": [
+    // MacOS, Linux
+    "~/.local/share/nvim/lazy",
+    // Only Linux
+    "/squashfs-root/usr/share/nvim/runtime",
+    // Only MacOS (with Homebrew)
     "/opt/homebrew/Cellar/neovim/0.9.4/share/nvim/runtime",
-    "~/.local/share/nvim/lazy"
+    // Only Windons
+    "~/.local/share/nvim-data/lazy",
+    "~/AppData/Local/Programs/Neovim/share/nvim/runtime"
   ],
   "Lua.workspace.checkThirdParty": false,
   "Lua.rumtime.version": "LuaJIT",

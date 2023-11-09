@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "Lua.workspace.library": [
+  "workspace.library": [
     // MacOS, Linux
     "~/.local/share/nvim/lazy",
     // Only Linux
@@ -11,9 +11,11 @@
     "~/.local/share/nvim-data/lazy",
     "~/AppData/Local/Programs/Neovim/share/nvim/runtime"
   ],
-  "Lua.workspace.checkThirdParty": false,
-  "Lua.rumtime.version": "LuaJIT",
-  "Lua.diagnostics.globals": ["vim"],
-  "Lua.format.enable": false,
-  "Lua.hint.enable": true
+  "workspace.checkThirdParty": false,
+  "rumtime.version": "LuaJIT",
+  "diagnostics.globals": [
+    "vim"
+  ],
+  "format.enable": false,
+  "hint.enable": true
 }

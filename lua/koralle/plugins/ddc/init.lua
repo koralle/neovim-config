@@ -22,6 +22,7 @@ local spec = {
       "Shougo/pum.vim",
       "Shougo/ddc-ui-pum",
       "Shougo/ddc-source-nvim-lsp",
+      "Shougo/ddc-source-copilot",
     },
     enabled = function()
       if vim.fn.executable("deno") == 1 then
@@ -54,10 +55,12 @@ local spec = {
       })
 
       vim.fn["ddc#custom#patch_global"]("sources", {
+        "copilot",
         "nvim-lsp",
         "around",
         "mocword",
       })
+
       vim.fn["ddc#custom#patch_global"]("sourceOptions", {
         _ = {
           matchers = {
@@ -78,6 +81,10 @@ local spec = {
           dup = "keep",
           keywordPattern = "\\k+",
           sorters = { "sorter_lsp-kind" },
+        },
+        copilot = {
+          mark = "[COPILOT]",
+          matchers = {},
         },
       })
 

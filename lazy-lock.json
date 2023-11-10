@@ -4,6 +4,7 @@
   "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
   "ddc-nvim-lsp-setup": { "branch": "main", "commit": "087fd72d0a1284edcbc263e3f1a0b462fa60845d" },
   "ddc-source-around": { "branch": "main", "commit": "68999df051a6fb2cbad57941a2c96e42149b6384" },
+  "ddc-source-copilot": { "branch": "main", "commit": "8f350b80d7059397b47dd53a0f4b1825ba3f26c0" },
   "ddc-source-mocword": { "branch": "main", "commit": "6b818bcefea97cd1a890d47d83689a0f2bc31ca3" },
   "ddc-source-nvim-lsp": { "branch": "main", "commit": "3dce3f29cb99aa5463c8ec56e091587b1c9fcba6" },
   "ddc-ui-pum": { "branch": "main", "commit": "6fd98ba227889883bbf75405506c451feaae6ef8" },

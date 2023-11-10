@@ -22,6 +22,7 @@
   "mason.nvim": { "branch": "main", "commit": "eabf6d347fdb75be360d4c0ced1145670a171453" },
   "mini.files": { "branch": "main", "commit": "ca3376f8776c2b0479b65ca4c8953559fdac7bb9" },
   "mini.tabline": { "branch": "main", "commit": "600b160ea38290de77467b0df9debbce00ea1fb3" },
+  "neodev.nvim": { "branch": "main", "commit": "b90ec1b35dc67902bd3c4fbd80ab11993c1af8cc" },
   "nerdfont.vim": { "branch": "master", "commit": "a2ac4d9df8f82f572fea54cd082c293e2b6d8fbb" },
   "noice.nvim": { "branch": "main", "commit": "92433164e2f7118d4122c7674c3834d9511722ba" },
   "none-ls.nvim": { "branch": "main", "commit": "b8fd44ee1616e6a9c995ed5f94ad9f1721d303ef" },

@@ -126,11 +126,12 @@ local spec = {
     },
     config = function()
       local opts = { noremap = true, silent = true, expr = true }
+
       vim.keymap.set("i", "<tab>", function()
-        local pumvisible = vim.fn.pumvisible() ~= 0
+        local pumvisible = vim.fn["pum#visible"]()
         local col = vim.fn.col(".")
         local line = vim.fn.getline(".")
-        if pumvisible() then
+        if pumvisible then
           vim.fn["pum#map#insert_relative"](1)
         elseif col <= 1 or line[col - 2] ~= "\\s" then
           return "<tab>"

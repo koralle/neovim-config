@@ -294,6 +294,13 @@ local spec = {
       })
     end,
   },
+  {
+    "folke/neodev.nvim",
+    opts = {
+      setup_jsonls = false,
+      lspconfig = true,
+    },
+  },
 }
 
 return spec

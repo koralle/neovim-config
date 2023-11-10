@@ -1,4 +1,5 @@
 {
+  "copilot.vim": { "branch": "release", "commit": "309b3c803d1862d5e84c7c9c5749ae04010123b8" },
   "ddc-filter-matcher_head": { "branch": "main", "commit": "16727bb785c7fdbd4c5ed7a5f3da8d2f7355f8fd" },
   "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
   "ddc-nvim-lsp-setup": { "branch": "main", "commit": "087fd72d0a1284edcbc263e3f1a0b462fa60845d" },

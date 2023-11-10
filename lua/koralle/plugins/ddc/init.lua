@@ -126,12 +126,18 @@ local spec = {
     },
     config = function()
       local opts = { noremap = true, silent = true, expr = true }
-      vim.cmd([[
-        inoremap <silent><expr> <TAB>
-          \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-          \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-          \ '<TAB>' : ddc#map#manual_complete()
-      ]])
+      vim.keymap.set("i", "<tab>", function()
+        local pumvisible = vim.fn.pumvisible() ~= 0
+        local col = vim.fn.col(".")
+        local line = vim.fn.getline(".")
+        if pumvisible() then
+          vim.fn["pum#map#insert_relative"](1)
+        elseif col <= 1 or line[col - 2] ~= "\\s" then
+          return "<tab>"
+        else
+          vim.fn["ddc#map#manual_complete"]()
+        end
+      end, opts)
 
       vim.keymap.set("i", "<s-tab>", function()
         vim.fn["pum#map#insert_relative"](-1)

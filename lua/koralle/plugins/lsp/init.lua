@@ -78,6 +78,7 @@ local spec = {
       load_lspconfig("pyright")
       load_lspconfig("volar")
       load_lspconfig("jsonls")
+      load_lspconfig("rust-analyzer")
     end,
   },
   {

@@ -38,6 +38,27 @@ local spec = {
           },
         },
       })
+
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = { "ddu-filer" },
+        callback = function()
+          vim.keymap.set("n", "<cr>", function()
+            vim.fn["ddu#ui#filer#do_action"]("itemAction")
+          end, { noremap = true, buffer = true, silent = true })
+
+          vim.keymap.set("n", "<space>", function()
+            vim.fn["ddu#ui#filer#do_action"]("toggleSelectItem")
+          end, { noremap = true, buffer = true, silent = true })
+
+          vim.keymap.set("n", "l", function()
+            vim.fn["ddu#ui#filer#do_action"]("expandItem", { mode = "toggle" })
+          end, { noremap = true, buffer = true })
+
+          vim.keymap.set("n", "q", function()
+            vim.fn["ddu#ui#filer#do_action"]("quit")
+          end, { noremap = true, buffer = true, silent = true })
+        end,
+      })
     end,
   },
   {

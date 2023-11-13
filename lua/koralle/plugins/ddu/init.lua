@@ -12,6 +12,13 @@ local spec = {
     config = function()
       vim.fn["ddu#custom#patch_global"]({
         ui = "filer",
+        uiParams = {
+          filer = {
+            split = "floating",
+            winWidth = math.floor(vim.o.columns * 0.8),
+            winHeight = math.floor(vim.o.columns * 0.6),
+          },
+        },
         sources = {
           {
             name = "file",

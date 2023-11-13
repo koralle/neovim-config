@@ -9,6 +9,7 @@
   "ddc-source-nvim-lsp": { "branch": "main", "commit": "3dce3f29cb99aa5463c8ec56e091587b1c9fcba6" },
   "ddc-ui-pum": { "branch": "main", "commit": "6fd98ba227889883bbf75405506c451feaae6ef8" },
   "ddc.vim": { "branch": "main", "commit": "2c13eff071fd4c96486506ab5253e8d40a076c88" },
+  "ddu-source-file": { "branch": "main", "commit": "24f71668279674c5b16190f895312bdfef55b4ce" },
   "ddu.vim": { "branch": "main", "commit": "67736ddea282bd8941097600e0d1af4ff6f4b8a1" },
   "denops-popup-preview.vim": { "branch": "main", "commit": "5a62ac76478791a86f17ac79f064ab302c41f5eb" },
   "denops.vim": { "branch": "main", "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1" },

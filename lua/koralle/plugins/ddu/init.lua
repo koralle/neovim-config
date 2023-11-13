@@ -13,36 +13,36 @@ local spec = {
       "Shougo/ddu-column-filename",
     },
     config = function()
-      -- vim.fn["ddu#custom#patch_global"]({
-      --   ui = "filer",
-      --   uiParams = {
-      --     filer = {
-      --       split = "floating",
-      --       winWidth = math.floor(vim.o.columns * 0.8),
-      --       winHeight = math.floor(vim.o.columns * 0.6),
-      --     },
-      --   },
-      --   sources = {
-      --     {
-      --       name = "file",
-      --       params = {},
-      --     },
-      --   },
-      --   sourceOptions = {
-      --     _ = {
-      --       columns = {
-      --         "filename",
-      --       },
-      --     },
-      --   },
-      --   kindOptions = {
-      --     file = {
-      --       defaultAction = "open",
-      --     },
-      --   },
-      -- })
+      vim.fn["ddu#custom#patch_local"]("filer", {
+        ui = "filer",
+        uiParams = {
+          filer = {
+            split = "floating",
+            winWidth = math.floor(vim.o.columns * 0.8),
+            winHeight = math.floor(vim.o.columns * 0.6),
+          },
+        },
+        sources = {
+          {
+            name = "file",
+            params = {},
+          },
+        },
+        sourceOptions = {
+          _ = {
+            columns = {
+              "filename",
+            },
+          },
+        },
+        kindOptions = {
+          file = {
+            defaultAction = "open",
+          },
+        },
+      })
 
-      vim.fn["ddu#custom#patch_global"]({
+      vim.fn["ddu#custom#patch_local"]("ff", {
         ui = "ff",
         uiParams = {
           ff = {

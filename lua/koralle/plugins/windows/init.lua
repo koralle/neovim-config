@@ -2,7 +2,6 @@
 local spec = {
   {
     "simeji/winresizer",
-    opts = {},
   },
 }
 

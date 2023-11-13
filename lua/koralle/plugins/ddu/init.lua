@@ -20,6 +20,13 @@ local spec = {
       "vim-denops/denops.vim",
     },
   },
+  {
+    "Shougo/ddu-column-filename",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
 }
 
 return spec

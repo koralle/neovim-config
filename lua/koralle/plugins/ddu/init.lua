@@ -103,6 +103,13 @@ local spec = {
       "vim-denops/denops.vim",
     },
   },
+  {
+    "Shougo/ddu-filter-matcher_substring",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
 }
 
 return spec

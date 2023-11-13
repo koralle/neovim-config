@@ -37,5 +37,6 @@
   "telescope.nvim": { "branch": "master", "commit": "4522d7e3ea75ffddabdc39957168a8a7060b5df0" },
   "toggleterm.nvim": { "branch": "main", "commit": "faee9d60428afc7857e0927fdc18daa6c409fa64" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
-  "vim-qfreplace": { "branch": "master", "commit": "db1c4b0161931c9a63942f4f562a0d0f4271ac14" }
+  "vim-qfreplace": { "branch": "master", "commit": "db1c4b0161931c9a63942f4f562a0d0f4271ac14" },
+  "winresizer": { "branch": "master", "commit": "9bd559a03ccec98a458e60c705547119eb5350f3" }
 }

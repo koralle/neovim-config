@@ -96,6 +96,13 @@ local spec = {
       "vim-denops/denops.vim",
     },
   },
+  {
+    "Shougo/ddu-source-file_rec",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
 }
 
 return spec

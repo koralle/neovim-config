@@ -12,6 +12,7 @@
   "ddu-column-filename": { "branch": "main", "commit": "804c4b2cc80d08d9f693ffd6023c7d65c3b405bf" },
   "ddu-kind-file": { "branch": "main", "commit": "a21629260cf80e5f4fbe8424bf656f61686eeac1" },
   "ddu-source-file": { "branch": "main", "commit": "24f71668279674c5b16190f895312bdfef55b4ce" },
+  "ddu-source-file_rec": { "branch": "main", "commit": "09ebb6274179e36e888fd2aba69edc96c8ab95b9" },
   "ddu-ui-ff": { "branch": "main", "commit": "d950460fac630b343064591e7ec347849f50cf24" },
   "ddu-ui-filer": { "branch": "main", "commit": "10ecb0ff3d7d036873a250e26d0fd1466beb3861" },
   "ddu.vim": { "branch": "main", "commit": "67736ddea282bd8941097600e0d1af4ff6f4b8a1" },

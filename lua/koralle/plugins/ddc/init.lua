@@ -93,7 +93,7 @@ local spec = {
         end
       end, opts)
 
-      vim.keymap.set("i", "<C-y>", function()
+      vim.keymap.set("i", "<C-l>", function()
         vim.fn["pum#map#confirm"]()
       end, {
         noremap = true,
@@ -104,7 +104,7 @@ local spec = {
         noremap = true,
       })
 
-      vim.keymap.set({ "i", "s" }, "<C-l>", function()
+      vim.keymap.set({ "i", "s" }, "<C-h>", function()
         return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
       end, { expr = true, noremap = false })
 

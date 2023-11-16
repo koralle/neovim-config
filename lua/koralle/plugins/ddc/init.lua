@@ -93,7 +93,7 @@ local spec = {
       vim.fn["ddc#custom#patch_global"]("sourceParams", {
         ["nvim-lsp"] = {
           snippetEngine = vim.fn["denops#callback#register"](function(body)
-            return vim.fn["vsnip#anonymous"](body)
+            vim.fn["vsnip#anonymous"](body)
           end),
           enableResolveItem = true,
           enableAdditionalTextEdit = true,

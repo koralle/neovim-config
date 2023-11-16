@@ -77,7 +77,6 @@ local spec = {
         },
         ["nvim-lsp"] = {
           mark = "🦍[LSP]",
-          forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
           dup = "keep",
           keywordPattern = "\\k+",
           sorters = { "sorter_lsp-kind" },

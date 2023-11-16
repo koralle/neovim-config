@@ -1,13 +1,3 @@
----@type fun(group: string, styles: table<string, string>): nil
-local set_highlight = function(group, styles)
-  local gui = styles.gui and "gui=" .. styles.gui or "gui=NONE"
-  local guifg = styles.guifg and "guifg=" .. styles.guifg or "guifg=NONE"
-  local guibg = styles.guibg and "guibg=" .. styles.guibg or "guibg=NONE"
-  local sp = styles.sp and "guisp=" .. styles.sp or ""
-  local hl_cmd = string.format("highlight %s %s %s %s %s", group, gui, guifg, guibg, sp)
-  vim.cmd(hl_cmd)
-end
-
 ---@type LazySpec
 local spec = {
   {
@@ -23,83 +13,123 @@ local spec = {
       "Shougo/ddc-ui-pum",
       "Shougo/ddc-source-nvim-lsp",
       "Shougo/ddc-source-copilot",
+      "hrsh7th/vim-vsnip",
+      "uga-rosa/ddc-source-vsnip",
     },
     enabled = function()
-      if vim.fn.executable("deno") == 1 then
-        return true
-      else
-        return false
-      end
+      return vim.fn.executable("deno") == 1
     end,
     config = function()
-      set_highlight("DdcCmpItemAbbr", {
-        gui = "italic",
-        guifg = "#7dcfff",
-      })
-
-      set_highlight("DdcCmpItemKind", {
-        guifg = "#9eca6a",
-      })
-
-      set_highlight("DdcCmpItemMenu", {
-        guifg = "#bb9af7",
-      })
-
-      vim.fn["pum#set_option"]({
-        padding = true,
-        highlight_columns = {
-          abbr = "Identifier",
-          kind = "Directory",
-          menu = "DdcCmpItemMenu",
+      vim.fn["ddc#custom#patch_global"]({
+        ui = "pum",
+        sources = {
+          "copilot",
+          "nvim-lsp",
+          "around",
+          "mocword",
         },
-      })
-
-      vim.fn["ddc#custom#patch_global"]("sources", {
-        "copilot",
-        "nvim-lsp",
-        "around",
-        "mocword",
-      })
-
-      vim.fn["ddc#custom#patch_global"]("sourceOptions", {
-        _ = {
-          matchers = {
-            "matcher_head",
+        backspaceCompletion = true,
+        sourceOptions = {
+          _ = {
+            matchers = {
+              "matcher_head",
+            },
+            sorters = {
+              "sorter_rank",
+            },
           },
-          sorters = {
-            "sorter_rank",
+          around = {
+            mark = "[AROUND]",
+            isVolatile = true,
+          },
+          mocword = {
+            mark = "[MOCWORD]",
+            minAutoCompleteLength = 3,
+            isVolatile = true,
+            maxItems = 20,
+          },
+          ["nvim-lsp"] = {
+            mark = "🦍[LSP]",
+            dup = "keep",
+            keywordPattern = "\\k+",
+            sorters = { "sorter_lsp-kind" },
+          },
+          copilot = {
+            mark = "[COPILOT]",
+            matchers = {},
+            minAutoCompleteLength = 0,
+            isVolatile = true,
           },
         },
-        mocword = {
-          mark = "[MOCWORD]",
-          minAutoCompleteLength = 3,
-          isVolatile = true,
-        },
-        ["nvim-lsp"] = {
-          mark = "🦍[LSP]",
-          dup = "keep",
-          keywordPattern = "\\k+",
-          sorters = { "sorter_lsp-kind" },
-        },
-        copilot = {
-          mark = "[COPILOT]",
-          matchers = {},
+        sourceParams = {
+          ["nvim-lsp"] = {
+            snippetEngine = vim.fn["denops#callback#register"](function(body)
+              vim.fn["vsnip#anonymous"](body)
+            end),
+            enableResolveItem = true,
+            enableAdditionalTextEdit = true,
+            confirmBehavior = "replace",
+          },
         },
       })
 
-      vim.fn["ddc#custom#patch_global"]("ui", "pum")
-      -- vim.fn["ddc#custom#patch_global"]("sources", {})
-      -- vim.fn["ddc#custom#patch_global"]("sourceOptions", {})
-      vim.fn["ddc#custom#patch_global"]("sourceParams", {
-        ["nvim-lsp"] = {
-          snippetEngine = vim.fn["denops#callback#register"](function(body)
-            return vim.fn["vsnip#anonymous"](body)
-          end),
-          enableResolveItem = true,
-          enableAdditionalTextEdit = true,
-          confirmBehavior = "replace",
-        },
+      local opts = { noremap = true, silent = true, expr = true }
+
+      vim.keymap.set("i", "<C-j>", function()
+        local pumvisible = vim.fn["pum#visible"]()
+        if pumvisible then
+          vim.fn["pum#map#insert_relative"](1)
+        else
+          return "<C-j>"
+        end
+      end, opts)
+
+      vim.keymap.set("i", "<C-k>", function()
+        local pumvisible = vim.fn["pum#visible"]()
+        if pumvisible then
+          vim.fn["pum#map#insert_relative"](-1)
+        else
+          return "<C-k>"
+        end
+      end, opts)
+
+      vim.keymap.set("i", "<C-y>", function()
+        vim.fn["pum#map#confirm"]()
+      end, {
+        noremap = true,
       })
+      vim.keymap.set("i", "<C-e>", function()
+        vim.fn["pum#map#cancel"]()
+      end, {
+        noremap = true,
+      })
+
+      vim.keymap.set({ "i", "s" }, "<C-l>", function()
+        return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
+      end, { expr = true, noremap = false })
+
+      vim.keymap.set({ "i", "s" }, "<Tab>", function()
+        return vim.fn["vsnip#jumpable"](1) == 1 and "<Plug>(vsnip-jump-next)" or "<Tab>"
+      end, { expr = true, noremap = false })
+
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+        return vim.fn["vsnip#jumpable"](-1) == 1 and "<Plug>(vsnip-jump-prev)" or "<S-Tab>"
+      end, { expr = true, noremap = false })
+
+      vim.keymap.set(
+        { "n", "s" },
+        "<s>",
+        [[<Plug>(vsnip-select-text)]],
+        { expr = true, noremap = false }
+      )
+
+      vim.keymap.set(
+        { "n", "s" },
+        "<S>",
+        [[<Plug>(vsnip-cut-text)]],
+        { expr = true, noremap = false }
+      )
+
       vim.fn["ddc#enable"]()
       vim.fn["popup_preview#enable"]()
     end,
@@ -130,51 +160,7 @@ local spec = {
     dependencies = {
       "folke/noice.nvim",
     },
-    config = function()
-      local opts = { noremap = true, silent = true, expr = true }
-
-      vim.keymap.set("i", "<C-j>", function()
-        local pumvisible = vim.fn["pum#visible"]()
-        if pumvisible then
-          vim.fn["pum#map#insert_relative"](1)
-        else
-          return "<C-j>"
-        end
-      end, opts)
-
-      vim.keymap.set("i", "<C-k>", function()
-        local pumvisible = vim.fn["pum#visible"]()
-        if pumvisible then
-          vim.fn["pum#map#insert_relative"](-1)
-        else
-          return "<C-k>"
-        end
-      end, opts)
-
-      vim.keymap.set("i", "<s-tab>", function()
-        vim.fn["pum#map#insert_relative"](-1)
-      end, {
-        noremap = true,
-      })
-      vim.keymap.set("i", "<C-n>", function()
-        vim.fn["pum#map#select_relative"](1)
-      end, {
-        noremap = true,
-      })
-      vim.keymap.set("i", "<C-p>", function()
-        vim.fn["pum#map#select_relative"](-1)
-      end, opts)
-      vim.keymap.set("i", "<C-y>", function()
-        vim.fn["pum#map#confirm"]()
-      end, {
-        noremap = true,
-      })
-      vim.keymap.set("i", "<C-e>", function()
-        vim.fn["pum#map#cancel"]()
-      end, {
-        noremap = true,
-      })
-    end,
+    config = function() end,
   },
   {
     "folke/noice.nvim",
@@ -197,6 +183,20 @@ local spec = {
   {
     "uga-rosa/ddc-nvim-lsp-setup",
     lazy = true,
+  },
+  {
+    "Shougo/ddc-source-copilot",
+    lazy = true,
+    dependencies = {
+      "github/copilot.vim",
+    },
+  },
+  {
+    "uga-rosa/ddc-source-vsnip",
+    lazy = true,
+    dependencies = {
+      "hrsh7th/vim-vsnip",
+    },
   },
 }
 

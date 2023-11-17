@@ -195,6 +195,10 @@
     "branch": "main",
     "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db"
   },
+  "trouble.nvim": {
+    "branch": "main",
+    "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea"
+  },
   "vim-qfreplace": {
     "branch": "master",
     "commit": "db1c4b0161931c9a63942f4f562a0d0f4271ac14"

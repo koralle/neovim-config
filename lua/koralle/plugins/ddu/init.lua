@@ -11,6 +11,7 @@ local spec = {
       "Shougo/ddu-source-file",
       "Shougo/ddu-kind-file",
       "Shougo/ddu-column-filename",
+      "uga-rosa/ddu-source-lsp",
     },
     config = function()
       vim.fn["ddu#custom#patch_local"]("filer", {
@@ -185,6 +186,13 @@ local spec = {
   },
   {
     "Shougo/ddu-filter-matcher_substring",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
+  {
+    "uga-rosa/ddu-source-lsp",
     lazy = true,
     dependencies = {
       "vim-denops/denops.vim",

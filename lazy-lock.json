@@ -63,6 +63,10 @@
     "branch": "main",
     "commit": "09ebb6274179e36e888fd2aba69edc96c8ab95b9"
   },
+  "ddu-source-lsp": {
+    "branch": "main",
+    "commit": "6791c0ad7226b92da4f4e17977a0bf53b1ae3241"
+  },
   "ddu-ui-ff": {
     "branch": "main",
     "commit": "d950460fac630b343064591e7ec347849f50cf24"

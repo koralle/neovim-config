@@ -171,6 +171,10 @@
     "branch": "master",
     "commit": "198015cca117d41e7d1fd404e0cdf3235084749b"
   },
+  "nvim-web-devicons": {
+    "branch": "master",
+    "commit": "3523d6e6d40ab11fd66c1b2732b3d6b60affa951"
+  },
   "plenary.nvim": {
     "branch": "master",
     "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174"

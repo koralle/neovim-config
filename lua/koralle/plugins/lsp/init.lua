@@ -77,6 +77,7 @@ local spec = {
       load_lspconfig("rust-analyzer")
       load_lspconfig("emmet_ls")
       load_lspconfig("html")
+      load_lspconfig("deno-ls")
     end,
   },
   {

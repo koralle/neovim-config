@@ -83,6 +83,10 @@
     "branch": "main",
     "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1"
   },
+  "dial.nvim": {
+    "branch": "master",
+    "commit": "019bbe9daea397c93a99adc747f8f071379fee5c"
+  },
   "diffview.nvim": {
     "branch": "main",
     "commit": "d38c1b5266850f77f75e006bcc26213684e1e141"

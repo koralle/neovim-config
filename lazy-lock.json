@@ -111,6 +111,10 @@
     "branch": "main",
     "commit": "af0f583cd35286dd6f0e3ed52622728703237e50"
   },
+  "hop.nvim": {
+    "branch": "master",
+    "commit": "df0b5b693ef8c3d414b5b85e4bc11cea99c4958d"
+  },
   "indent-blankline.nvim": {
     "branch": "master",
     "commit": "29be0919b91fb59eca9e90690d76014233392bef"

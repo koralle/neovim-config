@@ -117,7 +117,7 @@
   },
   "lspsaga.nvim": {
     "branch": "main",
-    "commit": "85f7c38d96924fd3c457ea0a31667cc1bd06b5e0"
+    "commit": "7ebd0cc5923c81516c1c050fc9aea70bec23fd02"
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
@@ -169,7 +169,11 @@
   },
   "nvim-treesitter": {
     "branch": "master",
-    "commit": "efec7115d8175bdb6720eeb4e26196032cb52593"
+    "commit": "198015cca117d41e7d1fd404e0cdf3235084749b"
+  },
+  "nvim-web-devicons": {
+    "branch": "master",
+    "commit": "3523d6e6d40ab11fd66c1b2732b3d6b60affa951"
   },
   "plenary.nvim": {
     "branch": "master",

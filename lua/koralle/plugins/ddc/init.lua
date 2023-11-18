@@ -15,6 +15,7 @@ local spec = {
       "Shougo/ddc-source-copilot",
       "hrsh7th/vim-vsnip",
       "uga-rosa/ddc-source-vsnip",
+      "LumaKernel/ddc-source-file",
     },
     enabled = function()
       return vim.fn.executable("deno") == 1
@@ -25,6 +26,7 @@ local spec = {
         sources = {
           "copilot",
           "nvim-lsp",
+          "file",
           "around",
           "mocword",
         },
@@ -41,6 +43,11 @@ local spec = {
           around = {
             mark = "[AROUND]",
             isVolatile = true,
+          },
+          file = {
+            mark = "[FILE]",
+            isVolatile = true,
+            forceCompletionPattern = "\\S/\\S*",
           },
           mocword = {
             mark = "[MOCWORD]",
@@ -69,6 +76,24 @@ local spec = {
             enableResolveItem = true,
             enableAdditionalTextEdit = true,
             confirmBehavior = "replace",
+          },
+        },
+      })
+
+      vim.fn["ddc#custom#patch_filetype"]({
+        "ps1",
+        "dospatch",
+        "autohotkey",
+        "registry",
+      }, {
+        sourceOptions = {
+          file = {
+            forceCompletionPattern = "\\S/\\S*",
+          },
+        },
+        sourceParams = {
+          file = {
+            mode = "win32",
           },
         },
       })
@@ -196,6 +221,13 @@ local spec = {
     lazy = true,
     dependencies = {
       "hrsh7th/vim-vsnip",
+    },
+  },
+  {
+    "LumaKernel/ddc-source-file",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
     },
   },
 }

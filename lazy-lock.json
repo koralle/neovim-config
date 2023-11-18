@@ -23,6 +23,10 @@
     "branch": "main",
     "commit": "8f350b80d7059397b47dd53a0f4b1825ba3f26c0"
   },
+  "ddc-source-file": {
+    "branch": "main",
+    "commit": "72335138349133361e38fe7a0d320a3ff1788839"
+  },
   "ddc-source-mocword": {
     "branch": "main",
     "commit": "6b818bcefea97cd1a890d47d83689a0f2bc31ca3"

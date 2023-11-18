@@ -1,8 +1,4 @@
 {
-  "copilot.vim": {
-    "branch": "release",
-    "commit": "309b3c803d1862d5e84c7c9c5749ae04010123b8"
-  },
   "ddc-filter-matcher_head": {
     "branch": "main",
     "commit": "16727bb785c7fdbd4c5ed7a5f3da8d2f7355f8fd"
@@ -18,10 +14,6 @@
   "ddc-source-around": {
     "branch": "main",
     "commit": "645919c9f2ca3f3b95d6d21bf86317f42638073d"
-  },
-  "ddc-source-copilot": {
-    "branch": "main",
-    "commit": "8f350b80d7059397b47dd53a0f4b1825ba3f26c0"
   },
   "ddc-source-file": {
     "branch": "main",

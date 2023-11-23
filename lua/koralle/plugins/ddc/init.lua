@@ -12,7 +12,6 @@ local spec = {
       "Shougo/pum.vim",
       "Shougo/ddc-ui-pum",
       "Shougo/ddc-source-nvim-lsp",
-      "Shougo/ddc-source-copilot",
       "hrsh7th/vim-vsnip",
       "uga-rosa/ddc-source-vsnip",
       "LumaKernel/ddc-source-file",
@@ -24,7 +23,6 @@ local spec = {
       vim.fn["ddc#custom#patch_global"]({
         ui = "pum",
         sources = {
-          "copilot",
           "nvim-lsp",
           "file",
           "around",
@@ -60,12 +58,6 @@ local spec = {
             dup = "keep",
             keywordPattern = "\\k+",
             sorters = { "sorter_lsp-kind" },
-          },
-          copilot = {
-            mark = "[COPILOT]",
-            matchers = {},
-            minAutoCompleteLength = 0,
-            isVolatile = true,
           },
         },
         sourceParams = {
@@ -208,13 +200,6 @@ local spec = {
   {
     "uga-rosa/ddc-nvim-lsp-setup",
     lazy = true,
-  },
-  {
-    "Shougo/ddc-source-copilot",
-    lazy = true,
-    dependencies = {
-      "github/copilot.vim",
-    },
   },
   {
     "uga-rosa/ddc-source-vsnip",

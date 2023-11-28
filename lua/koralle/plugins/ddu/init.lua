@@ -12,8 +12,30 @@ local spec = {
       "Shougo/ddu-kind-file",
       "Shougo/ddu-column-filename",
       "uga-rosa/ddu-filter-converter_devicon",
+      "yuki-yano/ddu-filter-fzf",
     },
     config = function()
+      vim.fn["ddu#custom#patch_global"]({
+        sourceOptions = {
+          _ = {
+            matchers = {
+              "matcher_fzf",
+            },
+            sorters = {
+              "sorter_fzf",
+            },
+          },
+        },
+      })
+
+      vim.fn["ddu#custom#patch_global"]({
+        filterParams = {
+          ["matcher_fzf"] = {
+            highlightMatched = "Search",
+          },
+        },
+      })
+
       vim.fn["ddu#custom#patch_local"]("filer", {
         ui = "filer",
         uiParams = {
@@ -220,6 +242,13 @@ local spec = {
   },
   {
     "uga-rosa/ddu-filter-converter_devicon",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
+  {
+    "yuki-yano/ddu-filter-fzf",
     lazy = true,
     dependencies = {
       "vim-denops/denops.vim",

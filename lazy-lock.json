@@ -17,7 +17,7 @@
   },
   "ddc-source-around": {
     "branch": "main",
-    "commit": "68999df051a6fb2cbad57941a2c96e42149b6384"
+    "commit": "645919c9f2ca3f3b95d6d21bf86317f42638073d"
   },
   "ddc-source-copilot": {
     "branch": "main",
@@ -45,11 +45,15 @@
   },
   "ddc.vim": {
     "branch": "main",
-    "commit": "2c13eff071fd4c96486506ab5253e8d40a076c88"
+    "commit": "c80d20daa8df26dd2ee1f62dd8d5db60b70fe43e"
   },
   "ddu-column-filename": {
     "branch": "main",
     "commit": "804c4b2cc80d08d9f693ffd6023c7d65c3b405bf"
+  },
+  "ddu-filter-converter_devicon": {
+    "branch": "main",
+    "commit": "8bbf0a0457beb8defdd41abe0d6ea2fe877fa96c"
   },
   "ddu-filter-matcher_substring": {
     "branch": "main",
@@ -85,7 +89,7 @@
   },
   "denops.vim": {
     "branch": "main",
-    "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1"
+    "commit": "8b53173370d3c2285abb34569b8d00b73d06eaa3"
   },
   "dial.nvim": {
     "branch": "master",
@@ -129,7 +133,7 @@
   },
   "lazy.nvim": {
     "branch": "main",
-    "commit": "16603c6917435d8446f7357cb61095138a417085"
+    "commit": "96584866b9c5e998cbae300594d0ccfd0c464627"
   },
   "lspsaga.nvim": {
     "branch": "main",
@@ -137,11 +141,11 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "40301e1c74bc0946eece13edf2b1c561cc497491"
+    "commit": "3d9e06ca604185ea5675d3c2ffd4284e0c2c7ffc"
   },
   "mason.nvim": {
     "branch": "main",
-    "commit": "eabf6d347fdb75be360d4c0ced1145670a171453"
+    "commit": "41e75af1f578e55ba050c863587cffde3556ffa6"
   },
   "mini.files": {
     "branch": "main",
@@ -181,7 +185,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "d0467b9574b48429debf83f8248d8cee79562586"
+    "commit": "553c4e0e667167640c5398573f6f3a488ff8047a"
   },
   "nvim-treesitter": {
     "branch": "master",
@@ -197,7 +201,7 @@
   },
   "pum.vim": {
     "branch": "main",
-    "commit": "e787cecb4272c8a8efdeb3b1ad32a90a5747a7a2"
+    "commit": "e484448613d955eb288b0d16c907a071a52c53bf"
   },
   "rust-tools.nvim": {
     "branch": "master",

@@ -159,6 +159,14 @@ local spec = {
           )
         end,
       })
+
+      vim.keymap.set("n", "<space>ufi", function()
+        vim.fn["ddu#start"]({ name = "filer" })
+      end, { silent = true })
+
+      vim.keymap.set("n", "<space>uff", function()
+        vim.fn["ddu#start"]({ name = "ff" })
+      end, { silent = true })
     end,
   },
   {

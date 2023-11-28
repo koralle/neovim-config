@@ -36,13 +36,21 @@ local spec = {
         },
       })
 
+      local lines = vim.opt.lines:get()
+      local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
+      local columns = vim.opt.columns:get()
+      local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
+
       vim.fn["ddu#custom#patch_local"]("filer", {
         ui = "filer",
         uiParams = {
           filer = {
             split = "floating",
-            winWidth = math.floor(vim.o.columns * 0.8),
-            winHeight = math.floor(vim.o.columns * 0.6),
+            winHeight = height,
+            winRow = row,
+            winWidth = width,
+            winCol = col,
+            floatingBorder = "single",
           },
         },
         sources = {
@@ -67,11 +75,6 @@ local spec = {
           },
         },
       })
-
-      local lines = vim.opt.lines:get()
-      local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
-      local columns = vim.opt.columns:get()
-      local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
 
       vim.fn["ddu#custom#patch_local"]("ff", {
         ui = "ff",

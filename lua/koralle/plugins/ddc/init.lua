@@ -178,6 +178,9 @@ local spec = {
   {
     "matsui54/denops-popup-preview.vim",
     lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
   },
   {
     "Shougo/pum.vim",

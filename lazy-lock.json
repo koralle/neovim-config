@@ -55,6 +55,10 @@
     "branch": "main",
     "commit": "8bbf0a0457beb8defdd41abe0d6ea2fe877fa96c"
   },
+  "ddu-filter-fzf": {
+    "branch": "main",
+    "commit": "9b9f54cbcdb0baedfe766cae5c8ec4c74bdb79ad"
+  },
   "ddu-filter-matcher_substring": {
     "branch": "main",
     "commit": "3704a0b12affd8d3114c81c90e6b4cd7f7ef5115"

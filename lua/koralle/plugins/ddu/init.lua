@@ -12,15 +12,45 @@ local spec = {
       "Shougo/ddu-kind-file",
       "Shougo/ddu-column-filename",
       "uga-rosa/ddu-filter-converter_devicon",
+      "yuki-yano/ddu-filter-fzf",
     },
     config = function()
+      vim.fn["ddu#custom#patch_global"]({
+        sourceOptions = {
+          _ = {
+            matchers = {
+              "matcher_fzf",
+            },
+            sorters = {
+              "sorter_fzf",
+            },
+          },
+        },
+      })
+
+      vim.fn["ddu#custom#patch_global"]({
+        filterParams = {
+          ["matcher_fzf"] = {
+            highlightMatched = "Search",
+          },
+        },
+      })
+
+      local lines = vim.opt.lines:get()
+      local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
+      local columns = vim.opt.columns:get()
+      local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
+
       vim.fn["ddu#custom#patch_local"]("filer", {
         ui = "filer",
         uiParams = {
           filer = {
             split = "floating",
-            winWidth = math.floor(vim.o.columns * 0.8),
-            winHeight = math.floor(vim.o.columns * 0.6),
+            winHeight = height,
+            winRow = row,
+            winWidth = width,
+            winCol = col,
+            floatingBorder = "single",
           },
         },
         sources = {
@@ -52,8 +82,16 @@ local spec = {
           ff = {
             split = "floating",
             startFilter = true,
-            -- winWidth = math.floor(vim.o.columns * 0.8),
-            -- winHeight = math.floor(vim.o.columns * 0.6),
+            prompt = "> ",
+            winHeight = height,
+            winRow = row,
+            winWidth = width,
+            winCol = col,
+            floatingBorder = "rounded",
+            filterFloatingPosition = "top",
+            autoAction = {
+              name = "preview",
+            },
           },
         },
         sources = {
@@ -146,6 +184,14 @@ local spec = {
           )
         end,
       })
+
+      vim.keymap.set("n", "<space>ufi", function()
+        vim.fn["ddu#start"]({ name = "filer" })
+      end, { silent = true })
+
+      vim.keymap.set("n", "<space>uff", function()
+        vim.fn["ddu#start"]({ name = "ff" })
+      end, { silent = true })
     end,
   },
   {
@@ -199,6 +245,13 @@ local spec = {
   },
   {
     "uga-rosa/ddu-filter-converter_devicon",
+    lazy = true,
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
+  {
+    "yuki-yano/ddu-filter-fzf",
     lazy = true,
     dependencies = {
       "vim-denops/denops.vim",

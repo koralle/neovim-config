@@ -78,6 +78,7 @@ local spec = {
       load_lspconfig("emmet_ls")
       load_lspconfig("html")
       load_lspconfig("deno-ls")
+      load_lspconfig("marksman")
     end,
   },
   {

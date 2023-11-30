@@ -237,6 +237,20 @@ local spec = {
             end,
             prefer_local = ".venv/bin",
           }),
+
+          -- Markdown
+          diagnostics.markdownlint_cli2.with({
+            condition = function(utils)
+              return utils.root_has_file({
+                ".markdownlint_cli2.jsonc",
+                ".markdownlint_cli2.yaml",
+                ".markdownlint_cli2.mjs",
+                ".markdownlint_cli2.cjs",
+              })
+            end,
+            prefer_local = "node_modules/.bin",
+            diagnostics_format = "[#{c}] #{m} (#{s})",
+          }),
         },
         on_attach = function(client, bufnr)
           if client.name == "lua_ls" then

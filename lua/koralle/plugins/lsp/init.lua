@@ -155,55 +155,6 @@ local spec = {
             prefer_local = "node_modules/.bin",
           }),
 
-          -- JavaScript/TypeScript (ESLint)
-          diagnostics.eslint.with({
-            condition = function(utils)
-              return utils.root_has_file({
-                "eslint.config.js",
-                ".eslintrc.js",
-                ".eslintrc.cjs",
-                ".eslintrc.yaml",
-                ".eslintrc.yml",
-                ".eslintrc.json",
-              })
-            end,
-            prefer_local = "node_modules/.bin",
-          }),
-          formatting.eslint.with({
-            condition = function(utils)
-              return utils.root_has_file({
-                "eslint.config.js",
-                ".eslintrc.js",
-                ".eslintrc.cjs",
-                ".eslintrc.yaml",
-                ".eslintrc.yml",
-                ".eslintrc.json",
-              })
-            end,
-            prefer_local = "node_modules/.bin",
-          }),
-
-          -- JavaScript/TypeScript (Prettier)
-          formatting.prettier.with({
-            condition = function(utils)
-              return utils.root_has_file({
-                ".prettierrc",
-                ".prettierrc.json",
-                ".prettierrc.yml",
-                ".prettierrc.yaml",
-                ".prettierrc.json5",
-                ".prettierrc.js",
-                ".prettier.config.js",
-                ".prettierrc.mjs",
-                ".prettier.config.mjs",
-                ".prettierrc.cjs",
-                ".prettier.config.cjs",
-                ".prettierrc.toml",
-              })
-            end,
-            prefer_local = "node_modules/.bin",
-          }),
-
           -- Deno
           diagnostics.deno_lint,
           formatting.deno_fmt,

@@ -98,7 +98,7 @@ local spec = {
         },
       })
 
-      local opts = { noremap = true, silent = true, expr = true }
+      local opts = { noremap = true, silent = true, expr = false }
 
       vim.keymap.set("i", "<C-j>", function()
         local pumvisible = vim.fn["pum#visible"]()

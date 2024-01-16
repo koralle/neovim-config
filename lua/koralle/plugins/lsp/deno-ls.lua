@@ -1,4 +1,4 @@
-require("ddc_nvim_lsp_setup").setup()
+require("ddc_source_lsp_setup").setup()
 
 vim.g.markdown_fenced_languages = {
   "ts=typescript",

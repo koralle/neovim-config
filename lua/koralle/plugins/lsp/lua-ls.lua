@@ -12,6 +12,7 @@ require("lspconfig").lua_ls.setup({
             -- Tell the language server which version of Lua you're using
             -- (most likely LuaJIT in the case of Neovim)
             version = "LuaJIT",
+            pathStrict = true,
           },
           -- Make the server aware of Neovim runtime files
           workspace = {

@@ -1,5 +1,20 @@
 require("ddc_source_lsp_setup").setup()
 
+---@param names string[]
+---@return string[]
+local function get_plugin_paths(names)
+  local plugins = require("lazy.core.config").plugins
+  local paths = {}
+  for _, name in ipairs(names) do
+    if plugins[name] then
+      table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
+    else
+      vim.notify("Invalid plugin name: " .. name, "ERROR")
+    end
+  end
+  return paths
+end
+
 require("lspconfig").lua_ls.setup({
   on_init = function(client)
     local path = client.workspace_folders[1].name

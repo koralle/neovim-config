@@ -25,7 +25,7 @@ local spec = {
         ui = "pum",
         sources = {
           "copilot",
-          "nvim-lsp",
+          "lsp",
           "file",
           "around",
           "mocword",
@@ -55,7 +55,7 @@ local spec = {
             isVolatile = true,
             maxItems = 20,
           },
-          ["nvim-lsp"] = {
+          lsp = {
             mark = "🦍[LSP]",
             dup = "keep",
             keywordPattern = "\\k+",
@@ -69,7 +69,7 @@ local spec = {
           },
         },
         sourceParams = {
-          ["nvim-lsp"] = {
+          lsp = {
             snippetEngine = vim.fn["denops#callback#register"](function(body)
               vim.fn["vsnip#anonymous"](body)
             end),

@@ -15,6 +15,16 @@ local function get_plugin_paths(names)
   return paths
 end
 
+---@param plugins string[]
+---@return string[]
+local function library(plugins)
+  local paths = get_plugin_paths(plugins)
+  table.insert(paths, vim.fs.joinpath(vim.fn.stdpath("config"), "lua"))
+  table.insert(paths, vim.fs.joinpath(vim.env.VIMRUNTIME, "lua"))
+  table.insert(paths, "${3rd}/luv/library")
+  return paths
+end
+
 require("lspconfig").lua_ls.setup({
   on_init = function(client)
     local path = client.workspace_folders[1].name

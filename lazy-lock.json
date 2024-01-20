@@ -195,6 +195,10 @@
     "branch": "master",
     "commit": "503d0ccdee762bb4b2758c391288768fafe39861"
   },
+  "nvim-ts-autotag": {
+    "branch": "main",
+    "commit": "8515e48a277a2f4947d91004d9aa92c29fdc5e18"
+  },
   "nvim-web-devicons": {
     "branch": "master",
     "commit": "140edfcf25093e8b321d13e154cbce89ee868ca0"

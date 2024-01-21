@@ -19,8 +19,8 @@ local server = {
             ["https://deno.land"] = true,
             ["https://x.next.land"] = true,
           },
-        }
-      }
+        },
+      },
     },
     typescript = {
       suggest = {
@@ -32,19 +32,19 @@ local server = {
           suppressWhenArgumentMatchesName = true,
         },
         parameterTypes = {
-          enabled = true
+          enabled = true,
         },
         variableTypes = {
-          enabled = false
+          enabled = false,
         },
         propertyDeclarationTypes = {
-          enabled = true
+          enabled = true,
         },
         functionLikeReturnTypes = {
-          enabled = true
+          enabled = true,
         },
         enumMemberValues = {
-          enabled = true
+          enabled = true,
         },
       },
     },

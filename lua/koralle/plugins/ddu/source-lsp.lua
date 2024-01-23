@@ -2,7 +2,7 @@
 local spec = {
   "uga-rosa/ddu-source-lsp",
   dependnecies = {
-    "ddu.vim"
+    "ddu.vim",
   },
   init = function()
     vim.keymap.set("n", "gr", function()
@@ -43,7 +43,7 @@ local spec = {
       sourceOptions = {
         _ = {
           converters = {
-            "converter_lsp_diagnostic"
+            "converter_lsp_diagnostic",
           },
         },
       },

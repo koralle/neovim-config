@@ -7,6 +7,7 @@ local spec = {
     dependencies = {
       "denops.vim",
       "vim-vsnip",
+      "denops-signature_help",
     },
     init = function()
       local opts = { noremap = true, silent = true, expr = false }
@@ -70,6 +71,7 @@ local spec = {
         sources = {
           "copilot",
           "lsp",
+          "rg",
         },
         sourceOptions = {
           _ = {
@@ -89,6 +91,7 @@ local spec = {
           "copilot",
           "nvim-lua",
           "lsp",
+          "rg",
         },
         sourceOptions = {
           _ = {
@@ -104,6 +107,7 @@ local spec = {
       })
 
       vim.fn["ddc#enable"]()
+      vim.fn["signature_help#enable"]()
     end,
   },
   {
@@ -140,6 +144,62 @@ local spec = {
       "ddc.vim",
     },
   },
+  {
+    "matsui54/denops-signature_help",
+    name = "denops-signature_help",
+    dependencies = {
+      "denops.vim",
+    },
+    config = function ()
+      vim.g["signature_help_config"] = {
+        contentStyle = "remainingLabels",
+        viewStyle = "virtual",
+      }
+    end
+  },
+  {
+    "tani/ddc-fuzzy",
+    name = "ddc-fuzzy",
+    dependencies = {
+      "ddc.vim",
+    },
+    config = function ()
+      local helpers = require("koralle.helpers.ddc")
+      helpers.patch_global({
+        sourceOptions = {
+          _ = {
+            matchers = {
+              "matcher_fuzzy",
+            },
+            sorters = {
+              "sorter_fuzzy",
+            },
+            converters = {
+              "converter_fuzzy"
+            },
+          },
+        }
+      })
+    end
+  },
+  {
+    "Shougo/ddc-source-rg",
+    name = "ddc-source-rg",
+    dependencies = {
+      "ddc.vim",
+    },
+    config = function ()
+      local helpers = require("koralle.helpers.ddc")
+      helpers.patch_global({
+        sourceOptions = {
+          rg = {
+            mark = "[RG]",
+            minAutoCompleteLength = 4,
+          }
+        }
+      })
+    end
+  }
 }
 
 return spec

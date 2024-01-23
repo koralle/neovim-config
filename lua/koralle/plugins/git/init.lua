@@ -17,6 +17,7 @@ local spec = {
   },
   {
     "sindrets/diffview.nvim",
+    name = "diffview.nvim",
     cofig = function()
       require("diffview").setup({
         diff_binaries = false,
@@ -27,6 +28,19 @@ local spec = {
     "akinsho/git-conflict.nvim",
     version = "*",
     config = true,
+  },
+  {
+    "NeogitOrg/neogit",
+    name = "neogit",
+    branch = "nightly",
+    dependencies = {
+      "plenary.nvim",
+      "diffview.nvim",
+    },
+    config = function()
+      local neogit = require("neogit")
+      neogit.setup({})
+    end,
   },
 }
 

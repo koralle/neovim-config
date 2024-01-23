@@ -1,9 +1,7 @@
 {
-  "copilot.vim": { "branch": "release", "commit": "a8142d44602f1b3f7b5c03c52b55f8f5d3453bf0" },
   "ddc-fileter-matcher_head": { "branch": "main", "commit": "17b656e38221743290bd0cd26f5b177efe318d77" },
   "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
   "ddc-fuzzy": { "branch": "main", "commit": "ee205bba8011a941380412a34e47ca67bb5fa41f" },
-  "ddc-source-copilot": { "branch": "main", "commit": "8f350b80d7059397b47dd53a0f4b1825ba3f26c0" },
   "ddc-source-lsp": { "branch": "main", "commit": "ad43a10726ebdacea80fafee5034247816fb099d" },
   "ddc-source-lsp-setup": { "branch": "main", "commit": "a8a06af203d402e0874060bcd8a0b89b32a52224" },
   "ddc-source-nvim-lua": { "branch": "main", "commit": "2b0d0f47efa14d7e7ac2c473861b095dcf99f020" },

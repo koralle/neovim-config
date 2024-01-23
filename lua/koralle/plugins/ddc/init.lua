@@ -69,7 +69,6 @@ local spec = {
       helpers.patch_global({
         ui = "pum",
         sources = {
-          "copilot",
           "lsp",
           "rg",
         },
@@ -88,7 +87,6 @@ local spec = {
 
       helpers.patch_filetype("lua", {
         sources = {
-          "copilot",
           "nvim-lua",
           "lsp",
           "rg",
@@ -150,12 +148,12 @@ local spec = {
     dependencies = {
       "denops.vim",
     },
-    config = function ()
+    config = function()
       vim.g["signature_help_config"] = {
         contentStyle = "remainingLabels",
         viewStyle = "virtual",
       }
-    end
+    end,
   },
   {
     "tani/ddc-fuzzy",
@@ -163,7 +161,7 @@ local spec = {
     dependencies = {
       "ddc.vim",
     },
-    config = function ()
+    config = function()
       local helpers = require("koralle.helpers.ddc")
       helpers.patch_global({
         sourceOptions = {
@@ -175,12 +173,12 @@ local spec = {
               "sorter_fuzzy",
             },
             converters = {
-              "converter_fuzzy"
+              "converter_fuzzy",
             },
           },
-        }
+        },
       })
-    end
+    end,
   },
   {
     "Shougo/ddc-source-rg",
@@ -188,18 +186,18 @@ local spec = {
     dependencies = {
       "ddc.vim",
     },
-    config = function ()
+    config = function()
       local helpers = require("koralle.helpers.ddc")
       helpers.patch_global({
         sourceOptions = {
           rg = {
             mark = "[RG]",
             minAutoCompleteLength = 4,
-          }
-        }
+          },
+        },
       })
-    end
-  }
+    end,
+  },
 }
 
 return spec

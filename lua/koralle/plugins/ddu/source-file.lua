@@ -19,7 +19,7 @@ local spec = {
           end, { noremap = true, buffer = true, silent = true })
 
           vim.keymap.set("n", "a", function()
-            vim.fn["ddu#ui#do_action"]("toggleAllItems")
+            vim.fn["ddu#ui#do_action"]("chooseAction")
           end, { noremap = true, buffer = true, silent = true })
 
           vim.keymap.set("n", "l", function()

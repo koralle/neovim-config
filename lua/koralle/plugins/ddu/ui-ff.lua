@@ -29,6 +29,10 @@ local spec = {
         vim.keymap.set("n", "a", function()
           vim.fn["ddu#ui#do_action"]("chooseAction")
         end, opts)
+
+        vim.keymap.set("n", "p", function()
+          vim.fn["ddu#ui#do_action"]("togglePreview")
+        end, opts)
       end,
     })
 
@@ -64,10 +68,16 @@ local spec = {
           winWidth = width,
           winCol = col,
           floatingBorder = "rounded",
+          floatingTitle = "Browser",
+          floatingTitlePos = "center",
           filterFloatingPosition = "top",
+          filterFloatingTitle = "Filter",
+          filterFloatingTitlePos = "center",
           autoAction = {
             name = "preview",
           },
+          autoResize = true,
+          volatile = true,
         },
       },
     })

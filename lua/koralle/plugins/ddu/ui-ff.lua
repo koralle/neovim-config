@@ -27,7 +27,7 @@ local spec = {
         end, opts)
 
         vim.keymap.set("n", "a", function()
-          vim.fn["ddu#ui#do_action"]("toggleAllItems")
+          vim.fn["ddu#ui#do_action"]("chooseAction")
         end, opts)
       end,
     })

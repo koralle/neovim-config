@@ -1,5 +1,3 @@
-require("ddc_source_lsp_setup").setup()
-
 ---@param names string[]
 ---@return string[]
 local function get_plugin_paths(names)
@@ -25,7 +23,7 @@ local function library(plugins)
   return paths
 end
 
-require("lspconfig").lua_ls.setup({
+local server = {
   on_init = function(client)
     local path = client.workspace_folders[1].name
     if
@@ -63,4 +61,6 @@ require("lspconfig").lua_ls.setup({
       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
     end
   end,
-})
+}
+
+return server

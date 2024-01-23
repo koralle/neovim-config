@@ -25,7 +25,7 @@ local spec = {
         volatile = true,
         matchers = {
           "matcher_fzf",
-        }
+        },
       },
       uiParams = {
         ff = {

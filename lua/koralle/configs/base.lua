@@ -10,3 +10,6 @@ vim.o.list = true
 vim.o.listchars = "tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:_"
 vim.cmd([[set mouse=a]])
 vim.o.number = true
+
+-- Integrate fish
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH

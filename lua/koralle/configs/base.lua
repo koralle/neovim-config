@@ -13,3 +13,6 @@ vim.o.number = true
 
 -- Integrate fish
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+
+-- Status Line
+vim.o.laststatus = 3

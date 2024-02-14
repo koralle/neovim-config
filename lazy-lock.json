@@ -25,7 +25,7 @@
   "ddu-ui-filer": { "branch": "main", "commit": "ee7b69da6e19d7fc627800ec41b8eba70d559c8a" },
   "ddu.vim": { "branch": "main", "commit": "f754dbf639146d9dbec2f80caefe61f461428975" },
   "denops-signature_help": { "branch": "main", "commit": "f5a80ec66faa016952df0f267f9f4c43d8dbe1b6" },
-  "denops.vim": { "branch": "main", "commit": "6489b17c58f32aa093571915ec491c55c1759ffb" },
+  "denops.vim": { "branch": "main", "commit": "ebda886f724fa2eb8aaa51d569903d5c359f0887" },
   "dial.nvim": { "branch": "master", "commit": "27eb570085db2ef44bff4f620d3806039184651c" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },

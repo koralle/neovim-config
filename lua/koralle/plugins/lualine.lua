@@ -7,9 +7,9 @@ local spec = {
   },
   opts = {
     options = {
-      globalstatus = true
-    }
-  }
+      globalstatus = true,
+    },
+  },
 }
 
 return spec

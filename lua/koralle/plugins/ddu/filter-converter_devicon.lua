@@ -4,7 +4,7 @@ local spec = {
   dependencies = {
     "ddu.vim",
   },
-  config = function ()
+  config = function()
     local helpers = require("koralle.helpers.ddu")
 
     helpers.patch_global({
@@ -16,7 +16,7 @@ local spec = {
         },
       },
     })
-  end
+  end,
 }
 
 return spec

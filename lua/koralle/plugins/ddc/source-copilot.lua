@@ -6,7 +6,7 @@ local spec = {
     dependencies = {
       "github/copilot.vim",
     },
-    config = function ()
+    config = function()
       local helpers = require("koralle.helpers.ddc")
 
       helpers.patch_global({
@@ -16,10 +16,10 @@ local spec = {
             matchers = {},
             minAutoCompleteLength = 0,
             isVolatile = true,
-          }
-        }
+          },
+        },
       })
-    end
+    end,
   },
   {
     "github/copilot.vim",

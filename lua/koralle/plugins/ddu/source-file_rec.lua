@@ -29,7 +29,7 @@ local spec = {
           },
           sorters = {
             "sorter_fzf",
-          }
+          },
         },
       },
       filterParams = {

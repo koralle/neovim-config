@@ -5,6 +5,7 @@ local spec = {
     name = "ddc-source-copilot",
     dependencies = {
       "github/copilot.vim",
+      "ddc.vim",
     },
     config = function()
       local helpers = require("koralle.helpers.ddc")

@@ -29,6 +29,12 @@ local spec = {
       })
     end)
 
+    vim.keymap.set("n", "<space>fD", function()
+      vim.fn["ddu#start"]({
+        name = "lsp:diagnostic_all",
+      })
+    end)
+
     vim.g.ddu_source_lsp_clientName = "nvim-lsp"
   end,
   config = function()
@@ -51,6 +57,34 @@ local spec = {
           name = "lsp_diagnostic",
           params = {
             buffer = 0,
+          },
+        },
+      },
+      sourceOptions = {
+        lsp_diagnostic = {
+          converters = {
+            {
+              name = "converter_lsp_diagnostic",
+              params = {
+                iconMap = {
+                  Error = "Error 󰅚 ",
+                  Warning = "Warn 󰀪 ",
+                  Info = "Info 󰌶 ",
+                  Hint = "Hint  ",
+                },
+              },
+            },
+          },
+        },
+      },
+    })
+
+    helpers.patch_local("lsp:diagnostic_all", {
+      sources = {
+        {
+          name = "lsp_diagnostic",
+          params = {
+            buffer = vim.NIL,
           },
         },
       },

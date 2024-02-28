@@ -19,6 +19,12 @@ local spec = {
       sources = {
         {
           name = "file_rec",
+          params = {
+            ignoredDirectories = {
+              "node_modules",
+              ".git",
+            },
+          },
         },
       },
       sourceOptions = {

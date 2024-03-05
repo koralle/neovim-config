@@ -3,6 +3,7 @@ local spec = {
   {
     "Shougo/ddc.vim",
     name = "ddc.vim",
+    lazy = true,
     import = "koralle.plugins.ddc",
     dependencies = {
       "denops.vim",
@@ -113,8 +114,8 @@ local spec = {
   {
     "Shougo/pum.vim",
     name = "pum.vim",
+    lazy = true,
     dependencies = {
-      "ddc.vim",
       "noice.nvim",
     },
   },
@@ -126,27 +127,26 @@ local spec = {
   {
     "Shougo/ddc-ui-pum",
     name = "ddc-ui-pum",
+    lazy = true,
     dependencies = {
       "ddc.vim",
+      "pum.vim",
     },
   },
   {
     "Shougo/ddc-filter-matcher_head",
-    name = "ddc-fileter-matcher_head",
-    dependencies = {
-      "ddc.vim",
-    },
+    name = "ddc-filter-matcher_head",
+    lazy = true,
   },
   {
     "Shougo/ddc-filter-sorter_rank",
     name = "ddc-filter-sorter_rank",
-    dependencies = {
-      "ddc.vim",
-    },
+    lazy = true,
   },
   {
     "matsui54/denops-signature_help",
     name = "denops-signature_help",
+    lazy = true,
     dependencies = {
       "denops.vim",
     },
@@ -160,9 +160,7 @@ local spec = {
   {
     "tani/ddc-fuzzy",
     name = "ddc-fuzzy",
-    dependencies = {
-      "ddc.vim",
-    },
+    lazy = true,
     config = function()
       local helpers = require("koralle.helpers.ddc")
       helpers.patch_global({
@@ -185,9 +183,7 @@ local spec = {
   {
     "Shougo/ddc-source-rg",
     name = "ddc-source-rg",
-    dependencies = {
-      "ddc.vim",
-    },
+    dependencies = require("koralle.helpers.ddc").global_dependencies,
     config = function()
       local helpers = require("koralle.helpers.ddc")
       helpers.patch_global({

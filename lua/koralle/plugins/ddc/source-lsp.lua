@@ -2,9 +2,7 @@
 local spec = {
   "Shougo/ddc-source-lsp",
   name = "ddc-source-lsp",
-  dependencies = {
-    "ddc.vim",
-  },
+  dependencies = require("koralle.helpers.ddc").global_dependencies,
   config = function()
     local helpers = require("koralle.helpers.ddc")
 

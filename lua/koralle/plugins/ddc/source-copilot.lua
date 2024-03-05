@@ -1,12 +1,18 @@
+local global_dependencies = require("koralle.helpers.ddc").global_dependencies
+
+local dependencies = {}
+for i, v in ipairs(global_dependencies) do
+  dependencies[i] = v
+end
+
+dependencies[#dependencies + 1] = "copilot.vim"
+
 ---@type LazySpec
 local spec = {
   {
     "Shougo/ddc-source-copilot",
     name = "ddc-source-copilot",
-    dependencies = {
-      "github/copilot.vim",
-      "ddc.vim",
-    },
+    dependencies = dependencies,
     config = function()
       local helpers = require("koralle.helpers.ddc")
 
@@ -24,6 +30,7 @@ local spec = {
   },
   {
     "github/copilot.vim",
+    name = "copilot.vim",
     lazy = true,
     enabled = function()
       if vim.fn.executable("node") == 1 then

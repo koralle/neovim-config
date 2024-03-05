@@ -1,8 +1,9 @@
 ---@type LazySpec
 local spec = {
   "uga-rosa/ddc-source-nvim-lua",
-  dependencies = {
-    "ddc.vim",
+  dependencies = require("koralle.helpers.ddc").global_dependencies,
+  ft = {
+    "lua",
   },
   config = function()
     local helpers = require("koralle.helpers.ddc")

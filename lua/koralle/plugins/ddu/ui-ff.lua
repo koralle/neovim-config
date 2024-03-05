@@ -55,11 +55,6 @@ local spec = {
   config = function()
     local helpers = require("koralle.helpers.ddu")
 
-    local lines = vim.opt.lines:get()
-    local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
-    local columns = vim.opt.columns:get()
-    local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
-
     helpers.patch_global({
       ui = "ff",
       uiParams = {
@@ -67,23 +62,61 @@ local spec = {
           split = "floating",
           startFilter = true,
           prompt = "> ",
-          winHeight = height,
-          winRow = row,
-          winWidth = width,
-          winCol = col,
           floatingBorder = "rounded",
-          floatingTitle = "Browser",
-          floatingTitlePos = "center",
           filterFloatingPosition = "top",
-          filterFloatingTitle = "Filter",
-          filterFloatingTitlePos = "center",
+          startAutoAction = true,
+          previewFloating = true,
+          previewFloatingBorder = "single",
+          previewSplit = "vertical",
+          previewFloatingTitle = "Preview",
+          previewWindowOptions = {
+            { "&signcolumn", "no" },
+            { "&foldcolumn", 0 },
+            { "&foldenable", 0 },
+            { "&number", 0 },
+            { "&wrap", 0 },
+            { "&scrolloff", 0 },
+          },
           autoAction = {
             name = "preview",
           },
           autoResize = true,
           volatile = true,
+          highlights = {
+            floating = "Normal",
+            floatingBorder = "Normal",
+          },
+          ignoreEmpty = true,
         },
       },
+    })
+
+    local function resize()
+      local lines = vim.opt.lines:get()
+      local height, row = math.floor(lines * 0.8), math.floor(lines * 0.1)
+      local columns = vim.opt.columns:get()
+      local width, col = math.floor(columns * 0.8), math.floor(columns * 0.1)
+      local previewWidth = math.floor(width / 2)
+
+      helpers.patch_global({
+        uiParams = {
+          ff = {
+            winHeight = height,
+            winRow = row,
+            winWidth = width,
+            winCol = col,
+            previewHeight = height,
+            previewRow = row,
+            previewWidth = previewWidth,
+            previewCol = col + (width - previewWidth),
+          },
+        },
+      })
+    end
+    resize()
+
+    vim.api.nvim_create_autocmd("VimResized", {
+      callback = resize,
     })
   end,
 }

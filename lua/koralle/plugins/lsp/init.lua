@@ -7,6 +7,7 @@ local spec = {
       "BufNewFile",
     },
     dependencies = {
+      "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "ddc-source-lsp-setup",
     },
@@ -36,6 +37,7 @@ local spec = {
   },
   {
     "williamboman/mason.nvim",
+    lazy = true,
     config = function()
       require("mason").setup()
     end,
@@ -43,6 +45,7 @@ local spec = {
   {
     "uga-rosa/ddc-source-lsp-setup",
     name = "ddc-source-lsp-setup",
+    lazy = true,
     dependencies = {
       "ddc-source-lsp",
     },

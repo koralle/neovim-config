@@ -18,6 +18,7 @@
   "ddu-kind-file": { "branch": "main", "commit": "3863465fac299ab4d2a694c65c68fe3b66f11743" },
   "ddu-source-action": { "branch": "main", "commit": "9cb7628321a3d352983d33dd7ad91006aa8b10a7" },
   "ddu-source-file": { "branch": "main", "commit": "24f71668279674c5b16190f895312bdfef55b4ce" },
+  "ddu-source-dummy": { "branch": "main", "commit": "81f952df0c9212002bc4a850e23f0bd61b043eac" },
   "ddu-source-file_rec": { "branch": "main", "commit": "09ebb6274179e36e888fd2aba69edc96c8ab95b9" },
   "ddu-source-help": { "branch": "main", "commit": "b25d3b89b5e70c7d6b1bbc29d8db66fcbe2b00e4" },
   "ddu-source-lsp": { "branch": "main", "commit": "c4a1a8019fdfc95013c9028286564d1189e0f605" },

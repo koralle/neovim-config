@@ -33,6 +33,10 @@ local spec = {
         vim.keymap.set("n", "p", function()
           vim.fn["ddu#ui#do_action"]("togglePreview")
         end, opts)
+
+        vim.keymap.set("n", "e", function()
+          vim.fn["ddu#ui#do_action"]("expandItem", { mode = "toggle" })
+        end, opts)
       end,
     })
 

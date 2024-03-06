@@ -10,6 +10,7 @@ local spec = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "ddc-source-lsp-setup",
+      "SchemaStore",
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -49,6 +50,10 @@ local spec = {
     dependencies = {
       "ddc-source-lsp",
     },
+  },
+  {
+    "b0o/SchemaStore.nvim",
+    name = "SchemaStore",
   },
 }
 

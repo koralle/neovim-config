@@ -14,6 +14,12 @@ local spec = {
           mark = "[Lua]",
           dup = true,
           forceCompletionPattern = "\\.",
+          sorters = {
+            "sorter_lsp-kind",
+          },
+          converters = {
+            "converter_kind_labels",
+          },
         },
       },
     })

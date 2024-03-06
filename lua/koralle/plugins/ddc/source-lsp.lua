@@ -12,7 +12,12 @@ local spec = {
           mark = "[LSP]",
           dup = "keep",
           keywordPattern = "\\k+",
-          sorters = {},
+          sorters = {
+            "sorter_lsp-kind",
+          },
+          converters = {
+            "converter_kind_labels",
+          },
         },
       },
       sourceParams = {

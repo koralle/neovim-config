@@ -18,7 +18,7 @@ local spec = {
       helpers.on_attach(nil, function(_, bufnr)
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr })
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr })
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+        -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
         vim.keymap.set("n", "<space>n", vim.lsp.buf.rename, { buffer = bufnr })
       end)
 

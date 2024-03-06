@@ -82,6 +82,7 @@ local spec = {
             sorters = {
               "sorter_rank",
             },
+            converters = {},
           },
         },
         backspaceCompletion = true,
@@ -102,6 +103,7 @@ local spec = {
             sorters = {
               "sorter_rank",
             },
+            converters = {},
           },
         },
         backspaceCompletion = true,
@@ -118,6 +120,12 @@ local spec = {
     dependencies = {
       "noice.nvim",
     },
+    config = function()
+      vim.fn["pum#set_option"]({
+        padding = true,
+        preview = true,
+      })
+    end,
   },
   {
     "folke/noice.nvim",

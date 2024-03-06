@@ -2,6 +2,7 @@
   "copilot.vim": { "branch": "release", "commit": "a8142d44602f1b3f7b5c03c52b55f8f5d3453bf0" },
   "ddc-fileter-matcher_head": { "branch": "main", "commit": "17b656e38221743290bd0cd26f5b177efe318d77" },
   "CopilotChat.nvim": { "branch": "main", "commit": "8434e3be4d5019fdc4ffc59a27650e39bdd1c2dc" },
+  "SchemaStore": { "branch": "main", "commit": "88355559bb42cc8e4f6ca7b624dc4c3b654c5c08" },
   "ddc-filter-sorter_rank": { "branch": "main", "commit": "fccbd5892dc57f44f07cddcbef9d465838b36cee" },
   "ddc-fuzzy": { "branch": "main", "commit": "ee205bba8011a941380412a34e47ca67bb5fa41f" },
   "ddc-source-copilot": { "branch": "main", "commit": "8f350b80d7059397b47dd53a0f4b1825ba3f26c0" },

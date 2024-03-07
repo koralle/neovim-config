@@ -1,8 +1,12 @@
 ---@type LazySpec
 local spec = {
   "uga-rosa/ddu-source-lsp",
-  dependnecies = {
+  name = "ddu-source-lsp",
+  dependencies = {
     "ddu.vim",
+    "ddu-filter-matcher_substring",
+    "ddu-filter-fzf",
+    "ddu-ui-ff",
   },
   init = function()
     vim.keymap.set("n", "gr", function()

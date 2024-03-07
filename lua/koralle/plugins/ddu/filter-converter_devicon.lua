@@ -1,6 +1,7 @@
 ---@type LazySpec
 local spec = {
   "uga-rosa/ddu-filter-converter_devicon",
+  name = "ddu-filter-converter_devicon",
   dependencies = {
     "ddu.vim",
   },

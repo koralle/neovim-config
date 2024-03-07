@@ -1,6 +1,7 @@
 ---@type LazySpec
 local spec = {
   "Shougo/ddu-kind-file",
+  name = "ddu-kind-file",
   dependencies = {
     "ddu.vim",
   },

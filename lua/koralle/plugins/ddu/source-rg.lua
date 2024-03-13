@@ -3,12 +3,6 @@ local spec = {
   "shun/ddu-source-rg",
   dependencies = {
     "ddu.vim",
-    "ddu-column-filename",
-    "ddu-filter-matcher_substring",
-    "ddu-filter-fzf",
-    "ddu-kind-file",
-    "ddu-filter-converter_devicon",
-    "ddu-ui-ff",
   },
   init = function()
     vim.keymap.set("n", "<space>lg", function()

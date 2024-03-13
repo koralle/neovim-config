@@ -4,9 +4,6 @@ local spec = {
   name = "ddu-source-lsp",
   dependencies = {
     "ddu.vim",
-    "ddu-filter-matcher_substring",
-    "ddu-filter-fzf",
-    "ddu-ui-ff",
   },
   init = function()
     vim.keymap.set("n", "gr", function()

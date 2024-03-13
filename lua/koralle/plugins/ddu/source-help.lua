@@ -4,10 +4,6 @@ local spec = {
   name = "ddu-source-help",
   dependencies = {
     "ddu.vim",
-    "ddu-filter-matcher_substring",
-    "ddu-filter-fzf",
-    "ddu-filter-converter_devicon",
-    "ddu-ui-ff",
   },
   init = function()
     vim.keymap.set("n", "<space>hl", function()

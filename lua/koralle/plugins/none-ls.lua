@@ -14,9 +14,9 @@ local spec = {
     null_ls.setup({
       sources = {
         -- Lua
-        diagnostics.luacheck.with({
+        diagnostics.selene.with({
           condition = function(utils)
-            return utils.root_has_file({ ".luacheckrc", ".luacheckrc.lua" })
+            return utils.root_has_file({ "selene.toml" })
           end,
         }),
         formatting.stylua.with({
@@ -33,22 +33,6 @@ local spec = {
           prefer_local = "node_modules/.bin",
         }),
 
-        -- JavaScript/TypeScript (ESLint/Prettier)
-        diagnostics.eslint.with({
-          condition = function(utils)
-            return utils.root_has_file({
-              "eslint.config.js",
-              ".eslintrc",
-              ".eslintrc.js",
-              ".eslintrc.cjs",
-              ".eslintrc.yaml",
-              ".eslintrc.yml",
-              ".eslintrc.json",
-              ".eslintrc.jsonc",
-            })
-          end,
-          prefer_local = "node_modules/.bin",
-        }),
         formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({
@@ -67,10 +51,6 @@ local spec = {
           end,
           prefer_local = "node_modules/.bin",
         }),
-
-        -- Deno
-        diagnostics.deno_lint,
-        formatting.deno_fmt,
 
         -- GitHub Actions
         diagnostics.actionlint,

@@ -1,0 +1,15 @@
+std = "neovim"
+
+[lints]
+almost_swapped = "deny"
+deprecated = "deny"
+duplicate_keys = "deny"
+empty_loop = "deny"
+mixed_table = "allow"
+multiple_statements = "deny"
+type_check_inside_call = "deny"
+undefined_variable = "deny"
+unscoped_variables = "deny"
+unused_variable = "deny"
+
+[config]

@@ -13,3 +13,5 @@ vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 
 -- Status Line
 vim.o.laststatus = 3
+
+vim.o.cmdheight = 0
